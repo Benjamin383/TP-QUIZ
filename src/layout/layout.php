@@ -10,6 +10,7 @@
             <nav>
                 <a href="index.php" class="">Accueil</a>
                 <a href=".php" class="">Créer un quiz</a>
+                <a href="question_add.php" class="">Ajouter des questions</a>
             </nav>
         </header>
         <main>
