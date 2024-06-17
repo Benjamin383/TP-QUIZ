@@ -51,6 +51,12 @@ $result = $conn->query($sql);
             </tr>
         </tbody>
     </table>
+    Difficulté<br>
+    <input type="radio" id="difficulte_un" name="difficulte" value="1" checked /><label for="difficulte_un">1</label>
+    <input type="radio" id="difficulte_deux" name="difficulte" value="2" checked /><label for="difficulte_deux">2</label>
+    <input type="radio" id="difficulte_trois" name="difficulte" value="3" checked /><label for="difficulte_trois">3</label>
+    <input type="radio" id="difficulte_quatre" name="difficulte" value="4" checked /><label for="difficulte_quatre">4</label>
+    <input type="radio" id="difficulte_cinq" name="difficulte" value="5" checked /><label for="difficulte_cinq">5</label><br>
     <input type="submit" value="Enregistrer" />
 </form>
 <?php

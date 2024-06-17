@@ -9,13 +9,14 @@ if($_SERVER["REQUEST_METHOD"] === 'POST'){
     $reponse_trois = $_POST['reponse_trois'];
     $reponse_quatre = $_POST['reponse_quatre'];
     $correctAnswer = $_POST['correctAnswer'];
+    $difficulte = $_POST['difficulte'];
 
     $options = "[\"$reponse_une\",\"$reponse_deux\",\"$reponse_trois\",\"$reponse_quatre\"]";
     //$sql = "INSERT INTO users (username, email, password) VALUES('$username', '$email', '$password')";
-    $sql = "INSERT INTO question (question, options, correctAnswer) VALUES(?, ?, ?)";
+    $sql = "INSERT INTO question (question, options, correctAnswer, difficulte, id_categorie) VALUES(?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     if($stmt){
-        $stmt->bind_param("ssi", $question, $options, $correctAnswer);
+        $stmt->bind_param("ssiii", $question, $options, $correctAnswer, $difficulte, $id_categorie);
             //if($conn->query($sql) === true){
         if($stmt->execute()){
             // echo "Nouvel utilisateur créé avec succès.";
