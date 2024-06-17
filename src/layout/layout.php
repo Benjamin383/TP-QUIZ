@@ -6,10 +6,11 @@
 <body class="">
     <div class="">
         <header class="">
-            <h1 class="">Gestion des Utilisateurs</h1>
+            <h1 class="">Quiz</h1>
             <nav>
                 <a href="index.php" class="">Accueil</a>
                 <a href=".php" class="">Créer un quiz</a>
+                <a href="question_add.php" class="">Ajouter des questions</a>
             </nav>
         </header>
         <main>
