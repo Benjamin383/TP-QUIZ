@@ -39,8 +39,8 @@ $result = $conn->query($sql);
             <?php while ($row = $result->fetch_assoc()) : ?>
                     <tr>
                         <td><?= $row['question'] ?></td>
-                        <td><a href="/question_update.php?id_question=<?= $row['id_question'] ?>">Modifier</a></td>
-                        <td ><a href="/question_delete.php?id_question=<?= $row['id_question'] ?>">🗑️</a></td>
+                        <td><a href="question_update.php?id_question=<?= $row['id_question'] ?>">Modifier</a></td>
+                        <td ><a href="question_delete.php?id_question=<?= $row['id_question'] ?>">🗑️</a></td>
                     </tr>
             <?php endwhile ?>
         </tbody>
