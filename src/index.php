@@ -13,6 +13,8 @@ Liste des quiz : <br>
         <tr>
             <th>Numéro</th>
             <th>Nom du quiz</th>
+            <th>Edition</th>
+            <th>Suppression</th>
         </tr>
 <?php foreach ($quizs as $quiz): ?>
         <tr>
@@ -20,6 +22,8 @@ Liste des quiz : <br>
             <td>
                  <?= $quiz['titre'] ?>
             </td>
+            <td><a href="/quiz/quiz_form_update.php?id_quiz=<?= $quiz["id_quiz"] ?>">Modifier</a></td>
+            <td><a href="/quiz/quiz_delete.php?id_quiz=<?= $quiz['id_quiz'] ?>">🗑️</a></td>
         </tr>
     <?php endforeach; ?>
 </table>
