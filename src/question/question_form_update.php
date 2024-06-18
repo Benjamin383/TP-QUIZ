@@ -41,7 +41,7 @@ $categories_ids = array_column($categories, 'id_categorie');
                     <input type="text" name="question" value="<?= $question['question'] ?>">
                 </td>
                 <td>
-                    <input type="text" name="options" value="<?= $question['options'] ?>">
+                    <input type="text" name="options" value="<?= str_replace("\"", "", $question['options']) ?>">
                 </td>
                 <td>
                     <input type="text" name="correctAnswer" value="<?= $question['correctAnswer'] ?>">
