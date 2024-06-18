@@ -63,6 +63,7 @@ $result = $conn->query($sql);
             <tr>
                 <th>Questions</th>
                 <th>Difficulté</th>
+                <th>Catégorie</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>
@@ -72,6 +73,7 @@ $result = $conn->query($sql);
                     <tr>
                         <td><?= $row['question'] ?></td>
                         <td><?= $row['difficulte'] ?></td>
+                        <td><?= $row['nom'] ?></td>
                         <td><a href="question_form_update.php?id_question=<?= $row['id_question'] ?>">Modifier</a></td>
                         <td ><a href="question_delete.php?id_question=<?= $row['id_question'] ?>">🗑️</a></td>
                     </tr>
