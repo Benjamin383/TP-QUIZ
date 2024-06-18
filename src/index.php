@@ -20,7 +20,7 @@ $quizs = $result_quiz->fetch_all(MYSQLI_ASSOC);
         <tr>
             <td><?= $quiz['id_quiz'] ?></td>
             <td>
-                 <?= $quiz['titre'] ?>
+                 <a href="/play.php?id_quiz=<?= $quiz['id_quiz'] ?>"><?= $quiz['titre'] ?></a>
             </td>
             <td><a href="/quiz/quiz_form_update.php?id_quiz=<?= $quiz["id_quiz"] ?>">Modifier</a></td>
             <td><a href="/quiz/quiz_delete.php?id_quiz=<?= $quiz['id_quiz'] ?>">🗑️</a></td>

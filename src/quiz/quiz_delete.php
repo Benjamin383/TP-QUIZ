@@ -1,4 +1,4 @@
-// Supprimer les rôles actuels de l'utilisateur
+<!-- // Supprimer les quiz -->
 <?php
 
 require_once '../config.php';
