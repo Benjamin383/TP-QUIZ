@@ -8,13 +8,13 @@ $quizs = $result_quiz->fetch_all(MYSQLI_ASSOC);
 
 ?>
 
-Liste des quiz : <br>
-<table>
+<h1 class="text-center">Liste des quiz</h1><br>
+<table class="table">
         <tr>
-            <th>Numéro</th>
-            <th>Nom du quiz</th>
-            <th>Edition</th>
-            <th>Suppression</th>
+            <th scope="col">Numéro</th>
+            <th scope="col">Nom du quiz</th>
+            <th scope="col">Edition</th>
+            <th scope="col">Suppression</th>
         </tr>
 <?php foreach ($quizs as $quiz): ?>
         <tr>
