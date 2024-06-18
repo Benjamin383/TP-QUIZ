@@ -24,6 +24,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/question/question_form_add.php">Ajouter des questions</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/question/question_list.php">Liste des questions</a>
+        </li>
       </ul>
     </div>
   </div>
