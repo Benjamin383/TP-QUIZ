@@ -3,25 +3,45 @@ require_once '../config.php';
 
 $sql_categorie = "SELECT id_categorie, nom FROM categorie ORDER BY id_categorie";
 $result_categorie = $conn->query($sql_categorie);
+
+$sql_difficulte = "SELECT DISTINCT difficulte FROM question ORDER BY difficulte";
+$result_difficulte = $conn->query($sql_difficulte);
 ?>
-Catégorie : 
+ 
+<form action="question_filtre.php" method="POST">
+    Catégorie :
 <select name="id_categorie" id="id_categorie">
+    <option value="tout">tout</option>
     <?php if ($result_categorie->num_rows > 0) : ?>
         <?php while ($row = $result_categorie->fetch_assoc()) : ?>
-            <option value="<?= $row['id_categorie'] ?>"><?= $row['nom'] ?></option>
+            <option value="<?= $row['id_categorie'] ?>" ><?= $row['nom'] ?></option>
         <?php endwhile ?>
     <?php else : ?>
         <option value="">--Sélectionner une catégorie--</option>
     <?php endif ?>
 </select>
-<a href="/question/question_list.php?id_categorie=2">Voir</a>
+
+    Difficulté :
+<select name="difficulte" id="difficulte">
+    <option value="tout">tout</option>
+    <?php if ($result_difficulte->num_rows > 0) : ?>
+        <?php while ($row = $result_difficulte->fetch_assoc()) : ?>
+            <option value="<?= $row['difficulte'] ?>"><?= $row['difficulte'] ?></option>
+        <?php endwhile ?>
+    <?php else : ?>
+        <option value="">--Sélectionner une difficulté--</option>
+    <?php endif ?>
+</select>
+        <button>Filtrer</button>
+</form>
 
 <?php
-$id_categorie = isset($_GET['id_categorie']) ? $_GET['id_categorie'] : 2;
+$id_categorie = isset($_GET['id_categorie']) ? $_GET['id_categorie'] : 0;
+$difficulte = isset($_GET['difficulte']) ? $_GET['difficulte'] : 0;
 $sql = "SELECT q.id_question, q.question, q.options, q.correctAnswer, q.difficulte, c.id_categorie, c.nom
 FROM question q
 INNER JOIN categorie c ON c.id_categorie = q.id_categorie
-WHERE q.id_categorie = $id_categorie
+WHERE q.id_categorie = $id_categorie AND q.difficulte = $difficulte
 ORDER BY c.id_categorie, q.id_question ASC";
 $result = $conn->query($sql);
 ?>
@@ -31,6 +51,7 @@ $result = $conn->query($sql);
         <thead>
             <tr>
                 <th>Questions</th>
+                <th>Difficulté</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>
@@ -39,6 +60,7 @@ $result = $conn->query($sql);
             <?php while ($row = $result->fetch_assoc()) : ?>
                     <tr>
                         <td><?= $row['question'] ?></td>
+                        <td><?= $row['difficulte'] ?></td>
                         <td><a href="question_form_update.php?id_question=<?= $row['id_question'] ?>">Modifier</a></td>
                         <td ><a href="question_delete.php?id_question=<?= $row['id_question'] ?>">🗑️</a></td>
                     </tr>
