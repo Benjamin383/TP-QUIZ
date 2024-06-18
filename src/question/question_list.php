@@ -42,10 +42,6 @@ $result = $conn->query($sql);
                         <td><a href="/question_update.php?id_question=<?= $row['id_question'] ?>">Modifier</a></td>
                         <td ><a href="/question_delete.php?id_question=<?= $row['id_question'] ?>">🗑️</a></td>
                     </tr>
-                    <tr>
-                    <td colspan="3"><?= $row['options'] ?></td>    
-                    
-                    </tr>
             <?php endwhile ?>
         </tbody>
     </table>
