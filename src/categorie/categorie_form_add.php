@@ -1,12 +1,10 @@
 <?php ob_start();
 require_once '../config.php';
 
-
 $sql = "SELECT id_categorie, nom
 FROM categorie
 ORDER BY id_categorie ASC";
 $result = $conn->query($sql);
-
 
 ?>
 <form class="form" action="categorie_add.php" method="POST">
