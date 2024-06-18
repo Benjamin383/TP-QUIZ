@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id_quiz = $stmt->insert_id;
             }
 
-            header('location:/src/index.php');
+            header('location:/index.php');
         } else {
             echo "Erreur : " . $sql . "<br>" . $stmt->error;
         }
