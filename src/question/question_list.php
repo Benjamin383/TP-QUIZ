@@ -5,7 +5,6 @@ $sql = "SELECT id_categorie, nom
 FROM categorie
 ORDER BY id_categorie ASC";
 $result = $conn->query($sql);
-
 ?>
 
 
