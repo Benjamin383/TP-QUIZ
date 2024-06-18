@@ -51,7 +51,6 @@ $categories_ids = array_column($categories, 'id_categorie');
                 </td>
                 <td>
                     <select name="id_categorie" id="id_categorie" >
-                        
                             <?php foreach ($categories as $categorie): ?>
                                 <option value="<?= $categorie['id_categorie'] ?>" <?= $question['id_categorie'] === $categorie['id_categorie'] ? 'selected': '' ?> >
                                     <?= $categorie['nom'] ?>

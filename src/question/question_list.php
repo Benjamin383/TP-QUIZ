@@ -14,7 +14,7 @@ $result_difficulte = $conn->query($sql_difficulte);
     <option value="tout">tout</option>
     <?php if ($result_categorie->num_rows > 0) : ?>
         <?php while ($row = $result_categorie->fetch_assoc()) : ?>
-            <option value="<?= $row['id_categorie'] ?>" ><?= $row['nom'] ?></option>
+            <option value="<?= $row['id_categorie'] ?>" <?= isset($_GET['id_categorie']) && $_GET['id_categorie'] === $row['id_categorie'] ? 'selected' : ''?> ><?= $row['nom'] ?></option>
         <?php endwhile ?>
     <?php else : ?>
         <option value="">--Sélectionner une catégorie--</option>
@@ -26,7 +26,7 @@ $result_difficulte = $conn->query($sql_difficulte);
     <option value="tout">tout</option>
     <?php if ($result_difficulte->num_rows > 0) : ?>
         <?php while ($row = $result_difficulte->fetch_assoc()) : ?>
-            <option value="<?= $row['difficulte'] ?>"><?= $row['difficulte'] ?></option>
+            <option value="<?= $row['difficulte'] ?>" <?= isset($_GET['difficulte']) && $_GET['difficulte'] === $row['difficulte'] ? 'selected' : ''?> ><?= $row['difficulte'] ?></option>
         <?php endwhile ?>
     <?php else : ?>
         <option value="">--Sélectionner une difficulté--</option>
@@ -36,12 +36,23 @@ $result_difficulte = $conn->query($sql_difficulte);
 </form>
 
 <?php
-$id_categorie = isset($_GET['id_categorie']) ? $_GET['id_categorie'] : 0;
-$difficulte = isset($_GET['difficulte']) ? $_GET['difficulte'] : 0;
+$id_categorie = isset($_GET['id_categorie']) ? $_GET['id_categorie'] : 'tout';
+$difficulte = isset($_GET['difficulte']) ? $_GET['difficulte'] : 'tout';
+
+if($id_categorie != 'tout' && $difficulte != 'tout'){
+    $where="WHERE q.id_categorie = $id_categorie AND q.difficulte = $difficulte";
+}elseif($id_categorie != 'tout' && $difficulte == 'tout'){
+    $where="WHERE q.id_categorie = $id_categorie";
+}elseif($id_categorie == 'tout' && $difficulte != 'tout'){
+    $where="WHERE q.difficulte = $difficulte";
+}else{
+    $where="";
+}
+
 $sql = "SELECT q.id_question, q.question, q.options, q.correctAnswer, q.difficulte, c.id_categorie, c.nom
 FROM question q
 INNER JOIN categorie c ON c.id_categorie = q.id_categorie
-WHERE q.id_categorie = $id_categorie AND q.difficulte = $difficulte
+$where 
 ORDER BY c.id_categorie, q.id_question ASC";
 $result = $conn->query($sql);
 ?>
