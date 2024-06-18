@@ -10,7 +10,7 @@ $quizs = $result_quiz->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <form action="quiz_add.php" method="POST">
-<label for="titre">Quiz :</label>    
+<label for="titre">Nom du quiz :</label><br>    
 <input type="text" name="titre" id="titre">
     <br>
     

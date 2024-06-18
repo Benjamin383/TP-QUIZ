@@ -8,7 +8,7 @@
         <header class="">
             <h1 class="">Quiz</h1>
             <nav>
-                <a href="index.php" class="">Accueil</a>
+                <a href="/src/index" class="">Accueil</a>
                 <a href="/quiz/quiz_form_add.php" class="">Créer un quiz</a>
                 <a href="/question/question_form_add.php" class="">Ajouter des questions</a>
             </nav>
