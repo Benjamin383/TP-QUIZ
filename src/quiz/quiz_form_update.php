@@ -28,26 +28,28 @@ $result_quiz_question = $conn->query($sql_quiz_question);
 $quiz_question = $result_quiz_question->fetch_all(MYSQLI_ASSOC);
 $quiz_question_ids = array_column($quiz_question, 'id_question');
 ?>
-
+<div class="container">
 <form action="quiz_update.php" method="post">
-    ID:
-    <input type="text" name="id_quiz" value="<?= $id_quiz ?>" readonly><br>
-    Nom du quiz:
-    <input type="text" name="titre" value="<?= $quiz['titre'] ?>"><br>
-    <table>
+
+    <label class="form-label" for="id">ID:</label>
+    <input class="form-control" type="text" name="id_quiz" value="<?= $id_quiz ?>" readonly><br>
+
+    <label class="form-label" for="nom_du_quiz:">Nom du quiz:</label>
+    <input class="form-control" type="text" name="titre" value="<?= $quiz['titre'] ?>"><br>
+    <table class="table">
         <thead>
             <tr>
-                <th>Questions</th>
-                <th>Difficulté</th>
-                <th>Catégorie</th>  
+                <th scope="col">Questions</th>
+                <th scope="col">Difficulté</th>
+                <th scope="col">Catégorie</th>  
             </tr>
         </thead>
         <tbody>
         <?php foreach($questions as $question): ?>
             <tr>
                 <td>
-                <label>
-            <input type="checkbox" name="questions[]" value="<?= $question['id_question'] ?>" <?= in_array((String)$question['id_question'], $quiz_question_ids) ? 'checked' : '' ?> >
+                <label class="form-label">
+            <input class="form-check-input" type="checkbox" name="questions[]" value="<?= $question['id_question'] ?>" <?= in_array((String)$question['id_question'], $quiz_question_ids) ? 'checked' : '' ?> >
             <?= $question['question'] ?>
         </label>
                 </td>
@@ -61,8 +63,9 @@ $quiz_question_ids = array_column($quiz_question, 'id_question');
     <?php endforeach; ?> 
         </tbody>
     </table>
-    <button>Mettre à jour</button>
+    <button class="btn btn-primary">Mettre à jour</button>
 </form>
+</div>
 
 <?php
 $title = "Modification de quiz";

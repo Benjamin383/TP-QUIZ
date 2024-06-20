@@ -21,36 +21,36 @@ $categories_ids = array_column($categories, 'id_categorie');
 ?>
 
 <form action="question_update.php" method="post">
-    ID :
-    <input type="text" name="id_question" value="<?= $id_question ?>" readonly><br>
-    Titre :
-    <input type="text" name="question" value="<?= $question['question'] ?>"><br>
-    <table>
+    <label class="form-label" for="id">ID:</label>
+    <input class="form-control" type="text" name="id_question" value="<?= $id_question ?>" readonly><br>
+    <label class="form-label" for="titre">Titre :</label>
+    <input class="form-control" type="text" name="question" value="<?= $question['question'] ?>"><br>
+    <table class="table">
         <thead>
             <tr>
-                <th>Questions</th>
-                <th>Propositions</th>
-                <th>Réponse</th>
-                <th>Difficulté</th>
-                <th>Catégorie</th>
+                <th scope="col">Questions</th>
+                <th scope="col">Propositions</th>
+                <th scope="col">Réponse</th>
+                <th scope="col">Difficulté</th>
+                <th scope="col">Catégorie</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>
-                    <input type="text" name="question" value="<?= $question['question'] ?>">
+                    <input class="form-control" type="text" name="question" value="<?= $question['question'] ?>">
                 </td>
                 <td>
-                    <input type="text" name="options" value="<?= str_replace("\"", "", $question['options']) ?>">
+                    <input class="form-control" type="text" name="options" value="<?= str_replace("\"", "", $question['options']) ?>">
                 </td>
                 <td>
-                    <input type="text" name="correctAnswer" value="<?= $question['correctAnswer'] ?>">
+                    <input class="form-control" type="text" name="correctAnswer" value="<?= $question['correctAnswer'] ?>">
                 </td>
                 <td>
-                    <input type="text" name="difficulte" value="<?= $question['difficulte'] ?>">
+                    <input class="form-control" type="text" name="difficulte" value="<?= $question['difficulte'] ?>">
                 </td>
                 <td>
-                    <select name="id_categorie" id="id_categorie" >
+                    <select class="form-select" name="id_categorie" id="id_categorie" >
                             <?php foreach ($categories as $categorie): ?>
                                 <option value="<?= $categorie['id_categorie'] ?>" <?= $question['id_categorie'] === $categorie['id_categorie'] ? 'selected': '' ?> >
                                     <?= $categorie['nom'] ?>
@@ -61,7 +61,7 @@ $categories_ids = array_column($categories, 'id_categorie');
             </tr>
         </tbody>
     </table>
-    <button>Mettre à jour</button>
+    <button class="btn btn-primary mt-3">Mettre à jour</button>
 </form>
 
 <?php
