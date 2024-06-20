@@ -24,6 +24,9 @@
           <a class="nav-link" href="/quiz/quiz_form_add.php">Créer un quiz</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="../categorie/categorie_form_add.php">Créer une catégorie</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/question/question_form_add.php">Ajouter des questions</a>
         </li>
         <li class="nav-item">
