@@ -20,10 +20,10 @@ $quizs = $result_quiz->fetch_all(MYSQLI_ASSOC);
         <tr>
             <td><?= $quiz['id_quiz'] ?></td>
             <td>
-                 <a href="/play/play.php?id_quiz=<?= $quiz['id_quiz'] ?>"><?= $quiz['titre'] ?></a>
+                 <a href="/play/play.php?id_quiz=<?= $quiz['id_quiz'] ?>"><button type="button" class="btn btn-primary"><?= $quiz['titre'] ?></button></a>
             </td>
-            <td><a href="/quiz/quiz_form_update.php?id_quiz=<?= $quiz["id_quiz"] ?>">Modifier</a></td>
-            <td><a href="/quiz/quiz_delete.php?id_quiz=<?= $quiz['id_quiz'] ?>">🗑️</a></td>
+            <td><a href="/quiz/quiz_form_update.php?id_quiz=<?= $quiz["id_quiz"] ?>"><button type="button" class="btn btn-warning">Modifier</button></a></td>
+            <td><a href="/quiz/quiz_delete.php?id_quiz=<?= $quiz['id_quiz'] ?>"><!--🗑️--><button type="button" class="btn btn-danger">Supprimer</button></a></td>
         </tr>
     <?php endforeach; ?>
 </table>

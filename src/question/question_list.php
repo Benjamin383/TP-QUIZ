@@ -8,9 +8,11 @@ $sql_difficulte = "SELECT DISTINCT difficulte FROM question ORDER BY difficulte"
 $result_difficulte = $conn->query($sql_difficulte);
 ?>
  
-<form action="question_filtre.php" method="POST">
-    Catégorie :
-<select name="id_categorie" id="id_categorie">
+ <div class="container">
+<form class="row g-3" action="question_filtre.php" method="POST">
+    <label for="categorie" class="form-label">Catégorie :</label>
+    
+<select class="form-select" name="id_categorie" id="id_categorie">
     <option value="tout">tout</option>
     <?php if ($result_categorie->num_rows > 0) : ?>
         <?php while ($row = $result_categorie->fetch_assoc()) : ?>
@@ -21,8 +23,8 @@ $result_difficulte = $conn->query($sql_difficulte);
     <?php endif ?>
 </select>
 
-    Difficulté :
-<select name="difficulte" id="difficulte">
+<label for="difficulte" class="form-label">Difficulté :</label>   
+<select class="form-select" name="difficulte" id="difficulte">
     <option value="tout">tout</option>
     <?php if ($result_difficulte->num_rows > 0) : ?>
         <?php while ($row = $result_difficulte->fetch_assoc()) : ?>
@@ -32,8 +34,9 @@ $result_difficulte = $conn->query($sql_difficulte);
         <option value="">--Sélectionner une difficulté--</option>
     <?php endif ?>
 </select>
-        <button>Filtrer</button>
+        <button class="btn btn-primary mb-3">Filtrer</button>
 </form>
+</div>
 
 <?php
 $id_categorie = isset($_GET['id_categorie']) ? $_GET['id_categorie'] : 'tout';
@@ -58,14 +61,15 @@ $result = $conn->query($sql);
 ?>
 
 <?php if ($result->num_rows > 0) : ?>
-    <table>
+    <div class="container">
+    <table class="table">
         <thead>
             <tr>
-                <th>Questions</th>
-                <th>Difficulté</th>
-                <th>Catégorie</th>
-                <th>Modifier</th>
-                <th>Supprimer</th>
+                <th scope="col">Questions</th>
+                <th scope="col">Difficulté</th>
+                <th scope="col">Catégorie</th>
+                <th scope="col">Modifier</th>
+                <th scope="col">Supprimer</th>
             </tr>
         </thead>
         <tbody>
@@ -74,12 +78,13 @@ $result = $conn->query($sql);
                         <td><?= $row['question'] ?></td>
                         <td><?= $row['difficulte'] ?></td>
                         <td><?= $row['nom'] ?></td>
-                        <td><a href="question_form_update.php?id_question=<?= $row['id_question'] ?>">Modifier</a></td>
-                        <td ><a href="question_delete.php?id_question=<?= $row['id_question'] ?>">🗑️</a></td>
+                        <td><a href="question_form_update.php?id_question=<?= $row['id_question'] ?>"><button type="button" class="btn btn-warning">Modifier</button></a></td>
+                        <td ><a href="question_delete.php?id_question=<?= $row['id_question'] ?>"><!--🗑️--><button type="button" class="btn btn-danger">Supprimer</button></a></td>
                     </tr>
             <?php endwhile ?>
         </tbody>
     </table>
+    </div>
 <?php else : ?>
     <p>Pas de résultats</p>
 <?php endif ?>
