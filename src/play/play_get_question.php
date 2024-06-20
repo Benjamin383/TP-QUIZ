@@ -3,6 +3,7 @@ require_once '../config.php';
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    
     $id_quiz = $_POST['id_quiz'];
     $sql_question = "SELECT q.question, q.options, q.correctAnswer 
     FROM question q
