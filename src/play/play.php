@@ -1,6 +1,6 @@
 <?php
 ob_start();
-require_once 'config.php';
+require_once '../config.php';
 
 $id_quiz = $_GET['id_quiz'];
 
@@ -14,15 +14,15 @@ $quizs = $result_quiz->fetch_assoc();
 
 <div id="screen_play" class="container justify-content-center align-items-center mx-auto mt-5">
     <h1 class="text-center"><?= $quizs['titre'] ?></h1>
-    <form id="response_form" action="play_get_question.php" method="POST">
+    <form id="response_form" action="" method="POST">
         <div class="d-grid gap-2 col-6 mx-auto">
             <input type="hidden" name="id_quiz" value="<?= $_GET['id_quiz']?>"  />
             <button type="submit" class="btn btn-success" id="play_btn">Jouer</button>
         </div>
     </form>
 </div>
-<script src="js/play.js"></script>
+<script defer src="../js/play.js"></script>
 <?php
 $title = "Quiz";
 $content = ob_get_clean();
-require 'layout/layout.php';
+require '../layout/layout.php';
