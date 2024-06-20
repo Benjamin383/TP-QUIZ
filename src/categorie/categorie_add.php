@@ -3,7 +3,6 @@ require_once '../config.php';
 
 if($_SERVER["REQUEST_METHOD"] === 'POST'){
     $nom = $_POST['nom'];
-
     $sql = "INSERT INTO categorie (nom) VALUES(?)";
     $stmt = $conn->prepare($sql);
     if($stmt){

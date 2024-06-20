@@ -63,7 +63,7 @@ $quiz_question_ids = array_column($quiz_question, 'id_question');
     <?php endforeach; ?> 
         </tbody>
     </table>
-    <button class="btn btn-primary">Mettre à jour</button>
+    <button type="submit" class="btn btn-primary">Mettre à jour</button>
 </form>
 </div>
 

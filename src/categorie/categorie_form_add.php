@@ -12,7 +12,7 @@ $result = $conn->query($sql);
     <h1 class="text-center">Ajouter une catégorie</h1>
     <label class="form-label" for="nom">Nom :</label>
     <input class="form-control col-md-6" type="text" name="nom" id="nom" placeholder="Nom de la catégorie...">
-    <button type="button" class="btn btn-primary my-2">Ajouter</button>
+    <button type="submit" class="btn btn-primary my-2">Ajouter</button>
 </form>
 </div>
 
