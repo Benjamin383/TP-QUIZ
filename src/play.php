@@ -10,11 +10,6 @@ $quizs = $result_quiz->fetch_assoc();
 
 ?>
 
-<h1 class="text-center"><?= $quizs['titre'] ?></h1>
-<form action="" method="POST">
-    <div class="d-grid gap-2 col-6 mx-auto">
-        <button type="submit" class="btn btn-success" id="play_btn">Jouer</button>
-    </div>
 <div class="container justify-content-center align-items-center mx-auto mt-5">
     <h1 class="text-center"><?= $quizs['titre'] ?></h1>
     <form action="" method="POST">
