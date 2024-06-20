@@ -10,7 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     WHERE qq.id_quiz = $id_quiz
     ORDER BY qq.id_question";
 
-   // $result_question = $conn->query($sql_question);
+    $result_question = $conn->query($sql_question);
+    header("Content-Type: application/json");
+    echo json_encode($result_question);
+    exit();
 }
 
 
