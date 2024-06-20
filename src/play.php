@@ -11,7 +11,7 @@ $quizs = $result_quiz->fetch_assoc();
 ?>
 <div id="timer"  class="fw-bold mx-auto w-25 text-center mt-5"></div>
 
-<div id="screen_play" class="container justify-content-center align-items-center mx-auto mt-5">
+
 <div id="screen_play" class="container justify-content-center align-items-center mx-auto mt-5">
     <h1 class="text-center"><?= $quizs['titre'] ?></h1>
     <form id="response_form" action="play_get_question.php" method="POST">
