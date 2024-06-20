@@ -9,6 +9,7 @@ $result_quiz = $conn->query($sql_quiz);
 $quizs = $result_quiz->fetch_assoc();
 
 ?>
+
 <div class="container justify-content-center align-items-center mx-auto mt-5">
     <h1 class="text-center"><?= $quizs['titre'] ?></h1>
     <form action="" method="POST">
@@ -18,6 +19,7 @@ $quizs = $result_quiz->fetch_assoc();
     </form>
     <script src="js/play.js"></script>
 </div>
+
 <?php
 $title = "Quiz";
 $content = ob_get_clean();
