@@ -13,10 +13,10 @@ $quizs = $result_quiz->fetch_assoc();
     <h1 class="text-center"><?= $quizs['titre'] ?></h1>
     <form action="" method="POST">
         <div class="d-grid gap-2 col-6 mx-auto">
-                <button type="submit" class="btn btn-success" id="play_btn">Jouer</button>
+            <button type="submit" class="btn btn-success" id="play_btn">Jouer</button>
         </div>
-</form>
-<script src="js/play.js"></script>
+    </form>
+    <script src="js/play.js"></script>
 </div>
 <?php
 $title = "Quiz";
