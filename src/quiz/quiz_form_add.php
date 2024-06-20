@@ -8,7 +8,7 @@ $sql_quiz = "SELECT id_quiz, titre FROM quiz";
 $result_quiz = $conn->query($sql_quiz);
 $quizs = $result_quiz->fetch_all(MYSQLI_ASSOC);
 ?>
-
+<div class="container justify-content-center align-items-center mx-auto mt-5">
 <form action="quiz_add.php" method="POST">
     <div class="mb-3">
         <label for="titre" class="form-label">Nouveau Quiz :</label>
@@ -16,7 +16,7 @@ $quizs = $result_quiz->fetch_all(MYSQLI_ASSOC);
     </div> 
     <button type="submit" class="btn btn-primary">Ajouter Quiz</button>
 </form>
-
+</div>
 
 <?php
 $title = "Ajouter un quiz";
