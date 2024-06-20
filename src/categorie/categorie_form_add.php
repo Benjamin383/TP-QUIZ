@@ -7,30 +7,34 @@ ORDER BY id_categorie ASC";
 $result = $conn->query($sql);
 
 ?>
+<div class="container">
 <form class="form" action="categorie_add.php" method="POST">
-    <h1>Ajouter une catégorie</h1>
-    <label for="nom">Nom :</label>
-    <input type="text" name="nom" id="nom">
-    <button>Ajouter</button>
+    <h1 class="text-center">Ajouter une catégorie</h1>
+    <label class="form-label" for="nom">Nom :</label>
+    <input class="form-control col-md-6" type="text" name="nom" id="nom" placeholder="Nom de la catégorie...">
+    <button type="button" class="btn btn-primary my-2">Ajouter</button>
 </form>
+</div>
 
 <?php if ($result->num_rows > 0) : ?>
-    <table>
+    <div class="container">
+    <table class="table">
         <thead>
             <tr>
-                <th>Toutes les catégories</th>
-                <th>Supprimer</th>
+                <th scope="col">Toutes les catégories</th>
+                <th scope="col">Supprimer</th>
             </tr>
         </thead>
         <tbody>
             <?php while ($row = $result->fetch_assoc()) : ?>
                     <tr>
                         <td><?= $row['nom'] ?></td>
-                        <td ><a href="categorie_delete.php?id_categorie=<?= $row['id_categorie'] ?>">🗑️</a></td>
+                        <td ><a href="categorie_delete.php?id_categorie=<?= $row['id_categorie'] ?>"><!--🗑️--><button type="button" class="btn btn-danger">Supprimer</button></a></td>
                     </tr>
             <?php endwhile ?>
         </tbody>
     </table>
+    </div>
 <?php else: ?>
     <p>Pas de résultats</p>
 <?php endif ?>
