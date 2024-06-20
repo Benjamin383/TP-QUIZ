@@ -3,7 +3,9 @@ $(document).ready(function () {
     $("h1").text("question 1");
     let response_form = $("#response_form");
       response_form.empty();
-    const id_quiz_var = 2;
+
+      var urlParams = new URLSearchParams(window.location.search);
+      const id_quiz_var = urlParams.get('id_quiz');
     $("h1").after("<div id='score'>0</div>");
     let score = $("#score");
     let counterQuestion = 0;

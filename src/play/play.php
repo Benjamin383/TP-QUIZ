@@ -16,7 +16,7 @@ $quizs = $result_quiz->fetch_assoc();
     <h1 class="text-center"><?= $quizs['titre'] ?></h1>
     <form id="response_form" action="/play/play_get_question.php" method="POST">
         <div class="d-grid gap-2 col-6 mx-auto">
-            <input type="hidden" name="id_quiz" value="<?= $_GET['id_quiz']?>"  />
+            <input type="hidden" name="id_quiz" id="id_quiz" value="<?= $_GET['id_quiz']?>"  />
             <button type="submit" class="btn btn-success" id="play_btn">Jouer</button>
         </div>
     </form>
